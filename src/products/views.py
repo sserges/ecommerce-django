@@ -31,6 +31,14 @@ class ProductDetailView(DetailView):
         context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
         print(context)
         return context
+    
+    def get_object(self, *args, **kwargs):
+        request = self.request
+        pk = self.kwargs.get('pk')
+        instance = Product.objects.get_by_id(pk)
+        if instance is None:
+            raise Http404("Product doesn't exist")
+        return instance
 
 def product_detail_view(request, pk=None, *args, **kwargs):
     # instance = Product.objects.get(pk=pk)
@@ -43,6 +51,9 @@ def product_detail_view(request, pk=None, *args, **kwargs):
     #     raise Http404("Product doesn't exist")
     # except:
     #     print("huh?")
+
+    instance = Product.objects.get_by_id(pk)
+    print(instance)
 
     qs = Product.objects.filter(id=pk)
     if qs.exists() and qs.count() == 1:
