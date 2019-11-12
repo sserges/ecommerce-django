@@ -6,18 +6,16 @@
     <h1>Hello, world we're working!</h1>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <p>{{ content }}</p>
+  <div class="row">
+    <div class="col">
+      <p>{{ content }}</p>
 
-        <div class="col-sm-6 col-12">
-          <form method="POST">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
+      <div class="col-sm-6 col-12">
+        <form method="POST">
+          {% csrf_token %}
+          {{ form }}
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>

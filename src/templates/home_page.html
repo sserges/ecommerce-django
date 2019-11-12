@@ -8,22 +8,20 @@
     <h1>Hello, world we're working!</h1>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        {{ content }}
+  <div class="row">
+    <div class="col">
+      {{ content }}
 
+      <p>
+        <img src="{% static 'img/beach.jpg' %}" class="img-fluid" />
+      </p>
+
+      {% if request.user.is_authenticated %}
         <p>
-          <img src="{% static 'img/beach.jpg' %}" class="img-fluid" />
+          <h1>Premium</h1>
+          {{ premium_content }}
         </p>
-
-        {% if request.user.is_authenticated %}
-          <p>
-            <h1>Premium</h1>
-            {{ premium_content }}
-          </p>
-        {% endif %}
-      </div>
+      {% endif %}
     </div>
   </div>
 {% endblock content %}
