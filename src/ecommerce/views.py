@@ -38,6 +38,7 @@ def home_page_old(request):
 
 
 def home_page(request):
+    print(request.session.get("first_name", "unknown"))
     context = {
         "title": "Hello World!",
         "content": "Welcome to the homepage"
