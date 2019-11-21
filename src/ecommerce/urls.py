@@ -19,15 +19,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
-# from products.views import (
-#     ProductListView,
-#     product_list_view,
-#     ProductDetailView,
-#     product_detail_view,
-#     ProductDetailSlugView,
-#     ProductFeaturedDetailView,
-#     ProductFeaturedListView
-# )
+from carts.views import cart_home
 from .views import (
     home_page, 
     about_page, 
@@ -45,12 +37,7 @@ urlpatterns = [
     url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html'), name='bootstrap'),
     url(r'^products/', include("products.urls", namespace='products')),
     url(r'^search/', include("search.urls", namespace='search')),
-    # url(r'^featured/$', ProductFeaturedListView.as_view()),
-    # url(r'^featured/(?P<pk>\d+)/$', ProductFeaturedDetailView.as_view()),
-    # url(r'^products-fbv/$', product_list_view),
-    # # url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view()),
-    # url(r'^products/(?P<slug>[\w-]+)/$', ProductDetailSlugView.as_view()),
-    # url(r'^products-fbv/(?P<pk>\d+)/$', product_detail_view),
+    url(r'^cart/$', cart_home, name='cart'),
     url(r'^admin/', admin.site.urls),
 ]
 
