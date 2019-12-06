@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
-from carts.views import cart_home
 from .views import (
     home_page, 
     about_page, 
@@ -36,8 +35,8 @@ urlpatterns = [
     url(r'^register/$', register_page, name='register'),
     url(r'^bootstrap/$', TemplateView.as_view(template_name='bootstrap/example.html'), name='bootstrap'),
     url(r'^products/', include("products.urls", namespace='products')),
+    url(r'^cart/', include("carts.urls", namespace='cart')),
     url(r'^search/', include("search.urls", namespace='search')),
-    url(r'^cart/$', cart_home, name='cart'),
     url(r'^admin/', admin.site.urls),
 ]
 
