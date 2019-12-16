@@ -23,8 +23,8 @@ class Order(models.Model):
         return self.order_id
     
     def update_total(self):
-        cart_total = self.cart.total
-        shipping_total = self.shipping_total
+        cart_total = float(self.cart.total)
+        shipping_total = float(self.shipping_total)
         new_total = cart_total + shipping_total
         self.total = new_total
         self.save()
