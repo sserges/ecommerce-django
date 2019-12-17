@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'tags',
     'carts',
     'orders',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,6 @@ MEDIA_ROOT = os.path.join(
     "static_cdn",
     "media_root"
 )
+
+
+LOGOUT_REDIRECT_URL = '/login/'
